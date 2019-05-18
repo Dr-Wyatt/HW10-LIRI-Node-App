@@ -6,6 +6,10 @@ var Spotify = require('node-spotify-api');
 var date;
 var newMoment;
 var spotify = new Spotify(keys.spotify);
+// var spotify = new Spotify({
+//     id: '8f59f1d3b4b44932b67b4040aa8a2955',
+//     secret: 'ca17157b5d1440bb96aa01fcb27f2552'
+//   });
 console.log(spotify);
 var command = process.argv[2];
 var input = process.argv[3]

@@ -2,12 +2,21 @@ require("dotenv").config();
 var keys = require("./keys.js");
 var axios = require("axios");
 var moment = require('moment');
+var Spotify = require('node-spotify-api');
 var date;
 var newMoment;
-// var spotify = new Spotify(keys.spotify);
+var spotify = new Spotify(keys.spotify);
+console.log(spotify);
 var command = process.argv[2];
 var input = process.argv[3]
 
+spotify.search({ type: 'track', query: 'All the Small Things' })
+  .then(function(response) {
+    console.log(response);
+  })
+  .catch(function(err) {
+    console.log(err);
+  });
 
 if (command == "movie-this" && input) {
     axios.get("http://www.omdbapi.com/?t=" + input + "&y=&plot=short&apikey=trilogy").then(

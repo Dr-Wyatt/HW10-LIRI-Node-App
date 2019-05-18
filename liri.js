@@ -77,12 +77,9 @@ function movieFunc(command, input) {
 }
 
 function bandFunc() {
-    console.log("command: ", command);
-    console.log("input: ", input)
     if (command == "concert-this" && input) {
         axios.get("https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp").then(
             function (response) {
-                console.log(response.data[0]);
                 for (var i = 0; i < response.data.length; i++) {
                     date = response.data[i].datetime;
                     newMoment = moment(date);
@@ -112,9 +109,7 @@ if (command == "do-what-it-says") {
         var dataArr = data.split(",")
         console.log(dataArr);
         command = dataArr[0];
-        input = dataArr[1].replace(/"/g, "");;
-        console.log("Command: ", command);
-        console.log("Input: ", input);
+        input = dataArr[1].replace(/"/g, "");
         runChecker(command, input);
 
 
